@@ -36,7 +36,7 @@ const ArtEventDetails = () => {
         <h1>{artEventData.title}</h1>
         <div className="row justify-content-between">
           <div className="col-6">
-            <h3 className="mb-0">Hosted By:</h3>
+            <h3 className="mb-0 fw-bold">Hosted By:</h3>
             <p className="mb-0">
               {artEventData.hostBy.map((tag, index) => (
                 <span
@@ -57,7 +57,7 @@ const ArtEventDetails = () => {
             </div>
             <h4 className="mt-3 fw-bold">Descriptions: </h4>
             <p className="mb-3">{artEventData.descriptions}</p>
-            <h4>Additional Information:</h4>
+            <h4 className="fw-bold">Additional Information:</h4>
             <div className="fs-5">
               <p>
                 <strong>Artist Count: </strong>
@@ -83,12 +83,12 @@ const ArtEventDetails = () => {
                 </Link>
               </p>
             </div>
-            <h4 className="mb-0">Event Tags:</h4>
+            <h4 className="mb-0 fw-bold">Event Tags:</h4>
             <p>
               {artEventData.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="badge text-bg-danger rounded ms-0 m-4 fs-5 p-2"
+                  className="badge tag-bg-color rounded ms-0 m-4 fs-5 p-2"
                 >
                   {tag}
                 </span>
@@ -99,7 +99,7 @@ const ArtEventDetails = () => {
           <div className="col-6 py-4">
             <div className="card mb-3 border-light">
               <div className="card-body">
-                <h4 className="text-center ">
+                <h4 className="text-center fw-bold">
                   <i
                     class="bi bi-calendar2-event-fill mx-2"
                     style={{ fontSize: "20px" }}
@@ -139,7 +139,7 @@ const ArtEventDetails = () => {
             <div className="">
               <div className="card mb-3 border-light">
                 <div className="card-body">
-                  <h4 className="text-center">Artist Details</h4>
+                  <h4 className="text-center fw-bold">Artist Details</h4>
                   <div className="  ">
                     {artEventData.featuredArtists.map((artist) => (
                       <div className="text-center" key={artist._id}>
@@ -160,7 +160,7 @@ const ArtEventDetails = () => {
                           {artist.name}
                         </p>
                         <p>{artist.bio}</p>
-                        <p>Click Here to see his/her art work.</p>
+                        <p>Click here to see his/her art work.</p>
                         <Link
                           className="btn btn-primary fw-bold"
                           to={`/artEvents/artists/${artEventData._id}/arts`}

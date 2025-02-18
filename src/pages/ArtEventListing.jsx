@@ -98,6 +98,9 @@ const ArtEventListing = () => {
                         }}
                       />
                     </Link>
+                    <span className="position-absolute start-0 bg-info text-light px-2 p-2 rounded fw-bold" style={{ margin: '15px', fontFamily: "serif"}}>
+                      {event.continent}
+                    </span>
                   </div>
 
                   <span>
