@@ -1,5 +1,5 @@
 
-import ArtEventsListing from './pages/artEventsListing'
+import ArtEventsListing from '../pages/ArtEventsListing'
 import './App.css'
 
 function App() {
