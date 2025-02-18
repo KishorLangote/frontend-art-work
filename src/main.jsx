@@ -6,9 +6,10 @@ import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import ArtEventsListing from "./pages/artEventsListing.jsx";
 import ArtEventDetails from "./pages/ArtEventDetails.jsx";
 import ArtistArtsWork from "./pages/ArtistArtsWork.jsx";
+import ArtEventListing from "./pages/ArtEventListing.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
 
   {
     path: "/artEvents",
-    element: <ArtEventsListing />,
+    element: <ArtEventListing />,
   },
 
   {

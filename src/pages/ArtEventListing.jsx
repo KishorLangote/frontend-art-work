@@ -4,7 +4,7 @@ import { useState } from "react";
 import React from "react";
 import Header from "../components/Header";
 
-const ArtEventsListing = () => {
+const ArtEventListing = () => {
 
   const [filterContinent, setFilterContinent] = useState("All")
   const [searchInput, setSearchInput] = useState("")
@@ -143,7 +143,7 @@ const ArtEventsListing = () => {
   )
 };
 
-export default ArtEventsListing;
+export default ArtEventListing;
 
 
 
