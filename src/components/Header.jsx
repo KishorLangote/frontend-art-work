@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../App.css";
-const Header = ({ OnSearch }) => {
+const Header = ({ searchInput, setSearchInput }) => {
   return (
     <header>
       <nav className="bg-light">
@@ -19,10 +19,11 @@ const Header = ({ OnSearch }) => {
             >
               <input
                 type="search"
-                className="icon-search"
-                placeholder="Search by title and tags.."
+                className="icon-search py-4"
+                placeholder="Search by gallery & continent..."
                 aria-label="Search"
-                onChange={OnSearch}
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
               />
             </form>
           </span>

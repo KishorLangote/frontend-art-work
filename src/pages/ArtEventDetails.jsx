@@ -77,7 +77,7 @@ const ArtEventDetails = () => {
                 <strong>Check Tickets Availability: </strong>
                 <Link
                   to={artEventData.officialWebsite}
-                  className="btn btn-info text-light fw-bold"
+                  className="btn btn-info p-2 fw-bold text-light fw-bold"
                 >
                   Visit Our Website
                 </Link>
@@ -149,6 +149,7 @@ const ArtEventDetails = () => {
                             width: "30%",
                             height: "10rem",
                             borderRadius: "rounded",
+                            border: '4px solid black'
                           }}
                           className="rounded-circle"
                         />

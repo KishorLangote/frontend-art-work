@@ -9,7 +9,7 @@ const ArtEventListing = () => {
 
   const [filterContinent, setFilterContinent] = useState("All")
   const [searchInput, setSearchInput] = useState("")
-
+  
 
   const { data, loading, error } = useFetch(
     "https://backend-art-events.vercel.app/artEvents"
@@ -21,10 +21,14 @@ const ArtEventListing = () => {
 
       // search by gallery name..
   
-    const matchesArtGallery = artEvent.artGalleryName.toLowerCase().includes(searchInput.toLowerCase())
+    const matchesArtGallery = artEvent?.artGalleryName.toLowerCase().includes(searchInput.toLowerCase())
+
+    // search by continent:
+
+    const searchByContinent = artEvent?.continent.toLowerCase().includes(searchInput.toLowerCase())
 
     // keep art events that match the both conditions and render the filtered data..
-    return matchesContinent  && matchesArtGallery
+    return matchesContinent  && (matchesArtGallery || searchByContinent)
   })
 
   console.log(filteredContinent)
@@ -37,10 +41,10 @@ const ArtEventListing = () => {
     setFilterContinent(e.target.value)
   }
 
-  const searchHandler = (e) => {
-    setSearchInput(e.target.value)
+  // const searchHandler = (e) => {
+  //   setSearchInput(e.target.value)
     
-  }
+  // }
 
   if (loading || error) {
     return (
@@ -61,7 +65,7 @@ const ArtEventListing = () => {
 
   return  (
     <>
-    <Header onSearch={searchHandler} />
+    <Header searchInput={searchInput} setSearchInput={setSearchInput} />
       <main className="container py-4 bg-light">
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
