@@ -47,12 +47,12 @@ const ArtEventDetails = () => {
                 </span>
               ))}
             </p>
-            <div className="img-fluid">
+            <div className="">
               <img
                 src={artEventData.hostImageUrl}
                 alt={artEventData.title}
                 style={{ width: "100%", height: "400px", border: "3px solid black" }}
-                className="p-1 rounded"
+                className="p-1 rounded img-fluid"
               />
             </div>
             <h4 className="mt-3 fw-bold">Descriptions: </h4>
