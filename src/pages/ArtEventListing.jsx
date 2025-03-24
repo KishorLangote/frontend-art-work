@@ -99,7 +99,7 @@ const ArtEventListing = () => {
                         style={{
                           cursor: "pointer",
                           width: "100%",
-                          height: "15rem",
+                          height: "25rem",
                         }}
                       />
                     </Link>
