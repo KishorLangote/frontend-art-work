@@ -42,7 +42,7 @@ const ArtEventListing = () => {
 
   if (loading || error) {
     return (
-      <div className="d-flex align-items-center justify-content-center mt-5">
+      <div className="d-flex align-items-center justify-content-center" style={{minHeight: "50vh"}}>
         <div className="spinner-border text-primary mt-5"></div>
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
