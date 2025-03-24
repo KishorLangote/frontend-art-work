@@ -66,7 +66,7 @@ const ArtEventListing = () => {
   return  (
     <>
     <Header searchInput={searchInput} setSearchInput={setSearchInput} />
-      <main className="container py-4 bg-light">
+      <main className="container-fluid py-4 bg-light">
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         <div>
