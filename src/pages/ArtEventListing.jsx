@@ -33,18 +33,12 @@ const ArtEventListing = () => {
 
   console.log(filteredContinent)
   
-  // const searchItems = data?.filter(art => {
-  //   return art.artGalleryName.toLowerCase().includes(searchInput.toLowerCase())
-  // })
 
   const handlerContinent = (e) => {
     setFilterContinent(e.target.value)
   }
 
-  // const searchHandler = (e) => {
-  //   setSearchInput(e.target.value)
-    
-  // }
+
 
   if (loading || error) {
     return (
@@ -66,7 +60,7 @@ const ArtEventListing = () => {
   return  (
     <>
     <Header searchInput={searchInput} setSearchInput={setSearchInput} />
-      <main className="container-fluid py-4 p-5 bg-light">
+      <main className="container py-4 bg-light">
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         <div>
@@ -76,7 +70,7 @@ const ArtEventListing = () => {
           </div>
 
           <div className="py-3 d-flex">
-            <label className="my-3 mx-3 fw-medium fs-5">Continent:</label>
+            <label className="my-3 mx-3 fw-medium">Continent:</label>
             <select className="form-control form-select" value={filterContinent} onChange={handlerContinent}>
               <option value="All">All</option>
               <option value="Asia">Asia</option>
@@ -99,11 +93,11 @@ const ArtEventListing = () => {
                         style={{
                           cursor: "pointer",
                           width: "100%",
-                          height: "25rem",
+                          height: "15rem",
                         }}
                       />
                     </Link>
-                    <span className="position-absolute start-0 bg-info text-light px-2 p-2 fs-5 rounded fw-bold" style={{ margin: '15px', fontFamily: "serif"}}>
+                    <span className="position-absolute start-0 bg-info text-light px-2 p-2 rounded fw-bold" style={{ margin: '15px', fontFamily: "serif"}}>
                       {event.continent}
                     </span>
                   </div>

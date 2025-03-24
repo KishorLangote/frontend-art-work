@@ -4,9 +4,9 @@ const Header = ({ searchInput, setSearchInput }) => {
   return (
     <header>
       <nav className="bg-light">
-        <div className="container-fluid py-3">
-          <h1 className="mx-5">
-            <Link className="nav-link fw-bold" to="/">
+        <div className="container py-3">
+          <h1>
+            <Link className="nav-link" to="/">
               <i class="bi bi-brush" style={{ color: "purple" }}>
                 Art Work
               </i>
