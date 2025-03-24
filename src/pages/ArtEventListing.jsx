@@ -6,47 +6,46 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const ArtEventListing = () => {
-
-  const [filterContinent, setFilterContinent] = useState("All")
-  const [searchInput, setSearchInput] = useState("")
-  
+  const [filterContinent, setFilterContinent] = useState("All");
+  const [searchInput, setSearchInput] = useState("");
 
   const { data, loading, error } = useFetch(
     "https://backend-art-events.vercel.app/artEvents"
   );
   console.log("Data:", data);
 
-  const filteredContinent = data?.filter(artEvent => {
-    const matchesContinent =  filterContinent === "All" || artEvent.continent === filterContinent
+  const filteredContinent = data?.filter((artEvent) => {
+    const matchesContinent =
+      filterContinent === "All" || artEvent.continent === filterContinent;
 
-      // search by gallery name..
-  
-    const matchesArtGallery = artEvent?.artGalleryName.toLowerCase().includes(searchInput.toLowerCase())
+    // search by gallery name..
+
+    const matchesArtGallery = artEvent?.artGalleryName
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
 
     // search by continent:
 
-    const searchByContinent = artEvent?.continent.toLowerCase().includes(searchInput.toLowerCase())
+    const searchByContinent = artEvent?.continent
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
 
     // keep art events that match the both conditions and render the filtered data..
-    return matchesContinent  && (matchesArtGallery || searchByContinent)
-  })
+    return matchesContinent && (matchesArtGallery || searchByContinent);
+  });
 
-  console.log(filteredContinent)
-  
+  console.log(filteredContinent);
 
   const handlerContinent = (e) => {
-    setFilterContinent(e.target.value)
-  }
-
-
+    setFilterContinent(e.target.value);
+  };
 
   if (loading || error) {
     return (
       <div className="d-flex align-items-center justify-content-center mt-5">
-      <div className="spinner-border text-primary">
+        <div className="spinner-border text-primary"></div>
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
-      </div>
       </div>
     );
   }
@@ -59,27 +58,31 @@ const ArtEventListing = () => {
     );
   }
 
-  return  (
+  return (
     <>
-    <Header searchInput={searchInput} setSearchInput={setSearchInput} />
+      <Header searchInput={searchInput} setSearchInput={setSearchInput} />
       <main className="container py-4 bg-light">
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         <div>
           <div className="d-flex justify-content-between">
-          <div>
-            <h1>Art Events</h1>
-          </div>
+            <div>
+              <h1>Art Events</h1>
+            </div>
 
-          <div className="py-3 d-flex">
-            <label className="my-3 mx-3 fw-medium">Continent:</label>
-            <select className="form-control form-select" value={filterContinent} onChange={handlerContinent}>
-              <option value="All">All</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europe</option>
-              <option value="North America">North America</option>
-            </select>
-          </div>
+            <div className="py-3 d-flex">
+              <label className="my-3 mx-3 fw-medium">Continent:</label>
+              <select
+                className="form-control form-select"
+                value={filterContinent}
+                onChange={handlerContinent}
+              >
+                <option value="All">All</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+              </select>
+            </div>
           </div>
 
           <div className="row">
@@ -99,7 +102,10 @@ const ArtEventListing = () => {
                         }}
                       />
                     </Link>
-                    <span className="position-absolute start-0 bg-info text-light px-2 p-2 rounded fw-bold" style={{ margin: '15px', fontFamily: "serif"}}>
+                    <span
+                      className="position-absolute start-0 bg-info text-light px-2 p-2 rounded fw-bold"
+                      style={{ margin: "15px", fontFamily: "serif" }}
+                    >
                       {event.continent}
                     </span>
                   </div>
@@ -145,11 +151,7 @@ const ArtEventListing = () => {
       </main>
       <Footer />
     </>
-  )
+  );
 };
 
 export default ArtEventListing;
-
-
-
-
