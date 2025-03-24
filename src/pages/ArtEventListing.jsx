@@ -42,9 +42,11 @@ const ArtEventListing = () => {
 
   if (loading || error) {
     return (
-      <div className="container py-5">
+      <div className="d-flex align-items-center justify-content-center mt-5">
+      <div className="spinner-border text-primary">
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
+      </div>
       </div>
     );
   }
